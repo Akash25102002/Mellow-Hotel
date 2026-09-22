@@ -1,0 +1,80 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String      @id @default(cuid())
+  email        String      @unique
+  passwordHash String
+  fullName     String
+  role         String      @default("STAFF") // ADMIN | STAFF
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  foundItems   FoundItem[] @relation("LoggedBy")
+  auditLogs    AuditLog[]
+}
+
+model FoundItem {
+  id                    String         @id @default(cuid())
+  itemNumber            String         @unique // e.g. "FND-1001"
+  title                 String
+  category              String         // ELECTRONICS | CLOTHING | JEWELRY | DOCUMENTS | KEYS | OTHER
+  roomNumber            String         // e.g. "304", "Lobby", "Poolside"
+  locationDetails       String?        // e.g. "Under bed", "By bedside lamp"
+  storageLocation       String         // e.g. "Closet 1 - Shelf B - Bin 3"
+  status                String         @default("IN_STORAGE") // IN_STORAGE | MATCHED | RETURNED | DISPOSED
+  imageUrl              String?
+  foundDate             DateTime       @default(now())
+  
+  // Staff association
+  loggedById            String
+  loggedBy              User           @relation("LoggedBy", fields: [loggedById], references: [id])
+
+  // Optional match with guest inquiry
+  guestInquiryId        String?
+  guestInquiry          GuestInquiry?  @relation(fields: [guestInquiryId], references: [id])
+
+  // Resolution details
+  claimedByGuestName    String?
+  returnMethod          String?        // IN_PERSON | COURIER
+  courierTrackingNumber String?
+  disposalReason        String?        // DONATED_CHARITY | RECYCLED | DESTROYED
+  resolvedAt            DateTime?
+
+  createdAt             DateTime       @default(now())
+  updatedAt             DateTime       @updatedAt
+  auditLogs             AuditLog[]
+}
+
+model GuestInquiry {
+  id            String       @id @default(cuid())
+  referenceCode String       @unique // e.g. "INQ-7821"
+  guestName     String
+  guestEmail    String
+  guestPhone    String
+  roomNumber    String
+  checkOutDate  DateTime
+  category      String       // ELECTRONICS | CLOTHING | JEWELRY | DOCUMENTS | KEYS | OTHER
+  description   String
+  status        String       @default("OPEN") // OPEN | UNDER_REVIEW | RESOLVED | CLOSED
+  createdAt     DateTime     @default(now())
+  updatedAt     DateTime     @updatedAt
+  matchedItems  FoundItem[]
+}
+
+model AuditLog {
+  id              String     @id @default(cuid())
+  foundItemId     String
+  foundItem       FoundItem  @relation(fields: [foundItemId], references: [id], onDelete: Cascade)
+  action          String     // CREATED | STATUS_CHANGE | MATCHED | RETURNED | DISPOSED | UPDATED
+  details         String
+  performedById   String?
+  performedBy     User?      @relation(fields: [performedById], references: [id])
+  performedByName String
+  createdAt       DateTime   @default(now())
+}
