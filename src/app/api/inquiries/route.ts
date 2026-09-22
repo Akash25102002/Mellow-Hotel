@@ -3,6 +3,8 @@ import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
 import { guestInquiryCreateSchema } from "@/lib/validators";
 
+export const dynamic = "force-dynamic";
+
 // Helper to generate a friendly inquiry reference code e.g. "INQ-4921"
 function generateReferenceCode(): string {
   const randomDigits = Math.floor(1000 + Math.random() * 9000);

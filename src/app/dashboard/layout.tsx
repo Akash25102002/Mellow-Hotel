@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { PackageSearch, Boxes, MessageSquareSearch, BarChart3, LogOut, User, Building2 } from "lucide-react";
+import { PackageSearch, Boxes, MessageSquare, BarChart3, LogOut, User, Building2 } from "lucide-react";
 
 interface UserProfile {
   userId: string;
@@ -45,7 +45,7 @@ export default function DashboardLayout({
 
   const navLinks = [
     { href: "/dashboard", label: "Inventory Ledger", icon: Boxes },
-    { href: "/dashboard/inquiries", label: "Guest Inquiries & Matches", icon: MessageSquareSearch },
+    { href: "/dashboard/inquiries", label: "Guest Inquiries & Matches", icon: MessageSquare },
     { href: "/dashboard/analytics", label: "Storage Compliance", icon: BarChart3 },
   ];
 

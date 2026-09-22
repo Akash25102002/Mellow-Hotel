@@ -76,11 +76,11 @@ export async function GET(
       // 4. Keyword similarity (Weight: up to 20)
       const itemText = `${item.title} ${item.locationDetails || ""}`.toLowerCase();
       let keywordHits = 0;
-      for (const word of inquiryWords) {
+      Array.from(inquiryWords).forEach((word) => {
         if (itemText.includes(word)) {
           keywordHits++;
         }
-      }
+      });
 
       if (keywordHits > 0) {
         const keywordScore = Math.min(20, keywordHits * 5);

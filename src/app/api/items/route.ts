@@ -3,6 +3,8 @@ import { prisma } from "@/lib/prisma";
 import { getCurrentUser } from "@/lib/auth";
 import { foundItemCreateSchema } from "@/lib/validators";
 
+export const dynamic = "force-dynamic";
+
 // Helper to generate the next item number: e.g. "FND-1006"
 async function getNextItemNumber(): Promise<string> {
   const lastItem = await prisma.foundItem.findFirst({

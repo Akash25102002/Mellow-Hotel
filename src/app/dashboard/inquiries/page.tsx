@@ -2,7 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import {
-  MessageSquareSearch,
+  MessageSquare,
   Sparkles,
   Search,
   CheckCircle2,
@@ -232,7 +232,7 @@ export default function GuestInquiriesPage() {
           </div>
         ) : filteredInquiries.length === 0 ? (
           <div className="py-20 text-center text-slate-500">
-            <MessageSquareSearch className="w-12 h-12 text-slate-300 mx-auto mb-3" />
+            <MessageSquare className="w-12 h-12 text-slate-300 mx-auto mb-3" />
             <h3 className="text-base font-semibold text-slate-800">No guest inquiries found</h3>
             <p className="text-xs text-slate-400 mt-1 max-w-sm mx-auto">
               Guest submissions from the public report form will automatically appear here.
