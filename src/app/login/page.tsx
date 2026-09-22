@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Lock, Mail, AlertCircle, Loader2, PackageSearch, ArrowLeft, Shield } from "lucide-react";
+import HotelLogo from "@/components/HotelLogo";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -59,9 +60,7 @@ export default function LoginPage() {
 
         <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-10 h-10 rounded-xl bg-emerald-600 text-white flex items-center justify-center shadow-sm">
-              <PackageSearch className="w-5 h-5" />
-            </div>
+            <HotelLogo size="md" />
             <div>
               <h1 className="text-xl font-bold text-slate-900">Staff Operations Portal</h1>
               <p className="text-xs text-slate-500">Grand Azure Boutique Hotel & Resort</p>

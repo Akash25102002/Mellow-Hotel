@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { ArrowLeft, CheckCircle2, AlertCircle, Loader2, PackageSearch } from "lucide-react";
+import HotelLogo from "@/components/HotelLogo";
 import { ITEM_CATEGORIES } from "@/lib/validators";
 
 export default function ReportLostPage() {
@@ -121,9 +122,7 @@ export default function ReportLostPage() {
           /* Submission Form */
           <div className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center">
-                <PackageSearch className="w-5 h-5" />
-              </div>
+              <HotelLogo size="md" />
               <div>
                 <h1 className="text-xl font-bold text-slate-900">Report a Missing Item</h1>
                 <p className="text-xs text-slate-500">Grand Azure Boutique Hotel & Resort</p>

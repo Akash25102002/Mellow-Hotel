@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { PackageSearch, Boxes, MessageSquare, BarChart3, LogOut, User, Building2 } from "lucide-react";
+import HotelLogo from "@/components/HotelLogo";
 
 interface UserProfile {
   userId: string;
@@ -58,9 +59,7 @@ export default function DashboardLayout({
             {/* Left: Brand & Hotel */}
             <div className="flex items-center gap-3">
               <Link href="/dashboard" className="flex items-center gap-2.5">
-                <div className="w-9 h-9 rounded-lg bg-emerald-600 flex items-center justify-center text-white shadow-sm">
-                  <PackageSearch className="w-5 h-5" />
-                </div>
+                <HotelLogo size="sm" />
                 <div>
                   <span className="font-bold text-lg text-slate-900 tracking-tight">FoundDesk</span>
                   <span className="text-[11px] block text-slate-500 font-medium -mt-1 flex items-center gap-1">

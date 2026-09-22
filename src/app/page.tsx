@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { PackageSearch, ShieldCheck, Sparkles, Building2, ArrowRight, Clock, CheckCircle2 } from "lucide-react";
+import HotelLogo from "@/components/HotelLogo";
 
 export default function HomePage() {
   return (
@@ -8,15 +9,10 @@ export default function HomePage() {
       <header className="border-b bg-white/80 backdrop-blur-md sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-600 flex items-center justify-center text-white shadow-md shadow-emerald-200">
-              <PackageSearch className="w-6 h-6" />
-            </div>
-            <div>
-              <span className="font-bold text-xl tracking-tight text-slate-900">FoundDesk</span>
-              <span className="hidden sm:inline-block ml-2 text-xs font-medium px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-full">
-                Hotel Micro-SaaS
-              </span>
-            </div>
+            <HotelLogo size="md" showText={true} />
+            <span className="hidden sm:inline-block ml-1 text-xs font-medium px-2 py-0.5 bg-emerald-100 text-emerald-800 rounded-full">
+              Hotel Micro-SaaS
+            </span>
           </div>
 
           <div className="flex items-center space-x-3">
@@ -79,9 +75,7 @@ export default function HomePage() {
             {/* Staff Action Card */}
             <div className="p-6 rounded-2xl bg-gradient-to-br from-emerald-50 to-white border border-emerald-200 shadow-sm hover:shadow-md transition flex flex-col justify-between">
               <div>
-                <div className="w-12 h-12 rounded-xl bg-emerald-600 text-white flex items-center justify-center mb-4 shadow-sm">
-                  <Building2 className="w-6 h-6" />
-                </div>
+                <HotelLogo size="lg" className="mb-4" />
                 <h2 className="text-xl font-bold text-slate-900">Hotel Staff & Housekeeping</h2>
                 <p className="mt-2 text-sm text-slate-600">
                   Access the property inventory ledger, log newly found items, execute automated match scans, and verify guest handovers.

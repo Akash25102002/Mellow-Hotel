@@ -4,6 +4,9 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "FoundDesk - Boutique Hotel Lost & Found Management",
   description: "Modern property lost and found operations ledger with guest inquiry matching for boutique hotels and resorts.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
