@@ -1,0 +1,13 @@
+[build]
+  command = "npx prisma generate && npx prisma db push && node prisma/seed.js && npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "20"
+  DATABASE_URL = "file:./dev.db"
+  JWT_SECRET = "mellow-hotel-founddesk-secret-key-production-2026-min-32-chars"
+  NEXT_PUBLIC_APP_NAME = "Mellow FoundDesk"
+  NEXT_PUBLIC_HOTEL_NAME = "Grand Azure Resort & Spa"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
