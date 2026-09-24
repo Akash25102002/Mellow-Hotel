@@ -276,25 +276,25 @@ export default function DashboardInventoryPage() {
     switch (status) {
       case "IN_STORAGE":
         return (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-emerald-100 text-emerald-800">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-mellow-secondary text-mellow-primary border border-mellow-border">
             In Storage
           </span>
         );
       case "MATCHED":
         return (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-100 text-amber-800 animate-pulse">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-50 text-amber-800 border border-amber-200 animate-pulse">
             Matched (Pending Claim)
           </span>
         );
       case "RETURNED":
         return (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-stone-100 text-stone-700 border border-stone-200">
             Returned to Guest
           </span>
         );
       case "DISPOSED":
         return (
-          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-200 text-slate-700">
+          <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-slate-100 text-slate-600">
             Disposed / Donated
           </span>
         );
@@ -308,15 +308,15 @@ export default function DashboardInventoryPage() {
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Property Lost & Found Ledger</h1>
-          <p className="text-sm text-slate-500">
+          <h1 className="text-3xl font-serif font-normal text-mellow-black tracking-tight">Property Lost &amp; Found Ledger</h1>
+          <p className="text-xs text-mellow-gray mt-1">
             Centralized property registry for discovered personal belongings and chain of custody.
           </p>
         </div>
 
         <button
           onClick={() => setShowLogModal(true)}
-          className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white font-semibold text-sm shadow-sm transition"
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-mellow-primary hover:bg-mellow-black text-white font-semibold text-xs uppercase tracking-wider shadow-xs transition duration-300"
         >
           <Plus className="w-4 h-4" /> Log Found Item
         </button>
@@ -324,20 +324,20 @@ export default function DashboardInventoryPage() {
 
       {/* Metric Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
+        <div className="p-5 rounded-2xl bg-white border border-mellow-border shadow-xs flex items-center justify-between">
           <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">In Storage</div>
-            <div className="text-2xl font-extrabold text-emerald-600 mt-1">{storageCount}</div>
+            <div className="text-[11px] font-semibold uppercase tracking-widest text-mellow-gray">In Storage</div>
+            <div className="text-3xl font-serif text-mellow-primary font-normal mt-1">{storageCount}</div>
           </div>
-          <div className="w-10 h-10 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+          <div className="w-10 h-10 rounded-xl bg-mellow-secondary text-mellow-primary border border-mellow-border flex items-center justify-center">
             <Boxes className="w-5 h-5" />
           </div>
         </div>
 
-        <div className="p-4 rounded-xl bg-white border border-slate-200 shadow-sm flex items-center justify-between">
+        <div className="p-5 rounded-2xl bg-white border border-mellow-border shadow-xs flex items-center justify-between">
           <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-slate-500">Matched Inquiries</div>
-            <div className="text-2xl font-extrabold text-amber-600 mt-1">{matchedCount}</div>
+            <div className="text-[11px] font-semibold uppercase tracking-widest text-mellow-gray">Matched Inquiries</div>
+            <div className="text-3xl font-serif text-amber-700 font-normal mt-1">{matchedCount}</div>
           </div>
           <div className="w-10 h-10 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
             <CheckCircle className="w-5 h-5" />

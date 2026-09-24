@@ -3,18 +3,26 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 15, 23, 42;
-  --background-start-rgb: 248, 250, 252;
-  --background-end-rgb: 241, 245, 249;
+  --primary-color: #D16806;
+  --secondary-color: #F9F6F3;
+  --black-color: #1A1A1A;
+  --dark-color: #353535;
+  --border-color: #EAE5DD;
+  --border-subtle: #F4E2D8;
+  --accent-color: #ECB27B;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-  min-height: 100vh;
+  background-color: var(--secondary-color);
+  color: var(--dark-color);
+  font-family: var(--font-sora), system-ui, sans-serif;
+  letter-spacing: 0.015em;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-cormorant), Georgia, serif;
+  color: var(--black-color);
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
